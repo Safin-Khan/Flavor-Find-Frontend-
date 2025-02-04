@@ -20,32 +20,70 @@ export default function Login() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log('Form submitted');
+        
+        // New check for admin credentials
+        if (formData.username === 'admin' && formData.password === 'admin') {
+            alert('Redirecting to Admin Dashboard!');
+            try {
+              const response = await axios.post(
+                  'http://localhost:4000/users/login',
+                  formData,
+                  {
+                      withCredentials: true,
+                      headers: {
+                          'Content-Type': 'application/json',
+                      },
+                  }
+              );
+              
+              if (response.data) {
+                  localStorage.setItem('token', response.data);
+              }
+              
+              console.log('Response received');
+              console.log('Cookies:', document.cookie);
+              
+              alert('Login successful!');
+              router.push('/adminDashboard');
+          } catch (error) {
+              console.error('Login failed', error);
+              alert('Login failed. Please try again.');
+          }
+
+      }
+      else {
         try {
-            const response = await axios.post(
-                'http://localhost:4000/users/login',
-                formData,
-                {
-                    withCredentials: true,
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            );
-            
-            if (response.data) {
-                localStorage.setItem('token', response.data);
-            }
-            
-            console.log('Response received');
-            console.log('Cookies:', document.cookie);
-            
-            alert('Login successful!');
-            router.push('/home');
-        } catch (error) {
-            console.error('Login failed', error);
-            alert('Login failed. Please try again.');
-        }
+          const response = await axios.post(
+              'http://localhost:4000/users/login',
+              formData,
+              {
+                  withCredentials: true,
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+              }
+          );
+          
+          if (response.data) {
+              localStorage.setItem('token', response.data);
+          }
+          
+          console.log('Response received');
+          console.log('Cookies:', document.cookie);
+          
+          alert('Login successful!');
+          router.push('/home');
+      } catch (error) {
+          console.error('Login failed', error);
+          alert('Login failed. Please try again.');
+      }
     };
+
+            
+            return; // Exit the function early
+        }
+        
+        
   return (
     <div className="mx-auto flex flex-col bg-login-image">
       <header className="header w-full py-2 md:py-4">

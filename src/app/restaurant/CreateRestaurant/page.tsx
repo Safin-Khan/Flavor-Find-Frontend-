@@ -106,7 +106,7 @@ const CreateRestaurant = () => {
                 </div>
                 <button
                     type="submit"
-                    className="btn bg-black btn-primary w-full"
+                    className="btn bg-black text-white btn-primary w-full"
                     disabled={loading}
                 >
                     {loading ? 'Creating...' : 'Create Restaurant'}
