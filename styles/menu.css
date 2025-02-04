@@ -1,0 +1,79 @@
+
+.header {
+    transition: background-color 0.3s ease;
+  }
+  
+  .header:hover {
+    background-color: rgba(255, 255, 255, 0.973);
+  }
+  
+  .header .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 1536px) {
+    .header .container {
+      max-width: 1280px;
+    }
+  }
+  
+  @media (max-width: 1280px) {
+    .header .container {
+      max-width: 1024px;
+    }
+}
+   
+  
+  @media (max-width: 1024px) {
+    .header .container {
+      max-width: 768px;
+    }
+}
+  
+  
+  
+  /* Search section styles */
+  .relative {
+    position: relative;
+  }
+  
+  .input {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .input:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Filter button animation */
+  .btn-ghost {
+    transition: transform 0.2s ease;
+  }
+  
+  .btn-ghost:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Dropdown animations */
+  .dropdown-content {
+    animation: slideDown 0.2s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .carousel img {
+      height: 200px; /* Adjust height for smaller screens */
+    }
+  }

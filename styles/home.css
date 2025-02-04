@@ -1,0 +1,171 @@
+/* Header styles */
+.header {
+    transition: background-color 0.3s ease;
+  }
+  
+  .header:hover {
+    background-color: rgba(0, 0, 0, 0.541);
+  }
+  
+  .header .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 1536px) {
+    .header .container {
+      max-width: 1280px;
+    }
+  }
+  
+  @media (max-width: 1280px) {
+    .header .container {
+      max-width: 1024px;
+    }
+    
+    .nav ul {
+      gap: 1.25rem;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .header .container {
+      max-width: 768px;
+    }
+}
+  
+  /* Carousel styles */
+  .carousel img {
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel-item {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .carousel .btn-circle {
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+  }
+  
+  .carousel .btn-circle:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  /* Search section styles */
+  .input {
+    transition: box-shadow 0.3s ease;
+    }
+  
+  .input:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Filter button animation */
+  .btn-ghost {
+    transition: transform 0.2s ease;
+  }
+  
+  .btn-ghost:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Dropdown animations */
+  .dropdown-content {
+    animation: slideDown 0.2s ease-out;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+/* Card styles */
+.card {
+  background-color: transparent; /* Make the food card container transparent */
+  border-radius: 8px; /* Rounded corners for cards */
+  box-shadow: none; /* Remove shadow for transparency effect */
+  position: relative; /* Position relative for stacking context */
+  z-index: 2; /* Ensure cards are above the background */
+}
+
+/* Card body styles */
+.card-body {
+  background-color: transparent; /* Semi-transparent background for card body */
+  border-radius: 8px; /* Match the card's border radius */
+  padding: 1rem; /* Add padding for content */
+}
+
+.card-title {
+  flex: 1 1 calc(25% - 1rem); /* Allow cards to take up to 25% of the container width, minus margin */
+  margin: 0.5rem; /* Add some margin for spacing */
+  min-width: 200px; /* Set a minimum width for smaller screens */
+  animation: slideInRight 0.5s ease forwards; /* Apply the slide-in animation */
+  opacity: 0; /* Start with opacity 0 */
+  transition: opacity 0.5s ease; /* Transition for opacity */
+}
+
+/* Add a class to trigger the animation */
+.card-title.animate {
+  animation: slideInRight 0.5s ease forwards; /* Apply the slide-in animation */
+  opacity: 1; /* Fade in */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .card-title {
+    flex: 1 1 calc(50% - 1rem); /* Adjust to 50% on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-title {
+    flex: 1 1 100%; /* Stack cards on smaller screens */
+  }
+}
+
+/* Animation for sliding in from the right */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+body {
+  margin: 0; /* Remove default margin */
+}
+
+.min-h-screen {
+  background-image: url('/back.svg'); /* Use the root-relative path */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  min-height: 100vh; /* Ensure it covers the full height */
+  position: relative; /* Position relative for child elements */
+  z-index: 1; /* Ensure it is behind other content */
+}
+
+/* Ensure the dropdown content is not transparent */
+.dropdown-content {
+  background-color: rgb(22, 22, 22); /* Set a solid background color for the filter card */
+}
+
+.dropdown-content .card {
+  background-color: rgb(0, 0, 0); /* Ensure the card inside the dropdown is also solid */
+}
