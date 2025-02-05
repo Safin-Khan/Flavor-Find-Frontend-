@@ -131,38 +131,58 @@ export default function Login() {
       </header>
       
       <div>
-            <div className="flex justify-center items-center h-screen bg-gray-100">
+          <div className="flex justify-center items-center h-screen bg-gray-100">
+
+            <div className="flex girid grid-cols-2 ">
+
+              <div className="flex justify-center items-center">
+                <Image 
+                  src={logimg} 
+                  alt="Login Image" 
+                  className="h-96 w-auto"
+                  priority
+                />
+              </div>
+              <div>
                 <Form
-                    className="p-6 bg-white shadow-md rounded w-96"
+                    className=" bg-white shadow-md rounded w-full h-full"
                     onSubmit={handleSubmit}
                     action={'/'}
                 >
-                    <h2 className="text-xl text-black font-bold mb-4">Login</h2>
+                    <h2 className=" flex justify-center text-xl text-black font-bold mb-4">Login</h2>
+                    <li>
                     <input
-                        className="w-full mb-3 p-2 border rounded"
+                        className="flex w-80 mb-2 p-3 border rounded justify-center"
                         type="text"
                         name="username"
                         placeholder="Username"
                         onChange={handleChange}
                         required
                     />
+                    </li>
+                    <li>
                     <input
-                        className="w-full mb-3 p-2 border rounded"
+                        className="flex w-80 mb-8 p-3 border rounded justify-center"
                         type="password"
                         name="password"
                         placeholder="Password"
                         onChange={handleChange}
                         required
                     />
+                    </li>
+                    <li>
                     <button
                         type="submit"
                         className="w-full bg-blue-500 text-white p-2 rounded"
                     >
                         Login
                     </button>
+                    </li>
                 </Form>
+                </div>
             </div>
         </div>
+      </div>
 
 
 

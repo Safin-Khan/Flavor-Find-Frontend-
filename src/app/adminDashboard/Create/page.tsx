@@ -5,9 +5,8 @@ import React from 'react'
 
 const Create = () => {
   return (
-    <div className="flex">
-        <AdminSidebar />
-    <div className="w-10/12 grid grid-cols-2 gap-4">
+        
+    <div className=" grid grid-cols-2 gap-4">
     <div>
     <CreateFoodItem />
 
@@ -18,7 +17,7 @@ const Create = () => {
     <CreateRestaurant />
     </div>
   </div>
-  </div>
+  
   )
 }
 

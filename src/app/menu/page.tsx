@@ -42,7 +42,7 @@ export default function Menu() {
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8">Our Menu</h1>
+        <h1 className="text-4xl font-bold mb-8 text-black">Our Foods</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {foodItems.map((item) => (
@@ -56,7 +56,7 @@ export default function Menu() {
                 <h2 className="text-xl font-semibold mb-2">{item.name}</h2>
                 <p className="text-gray-600 mb-2">{item.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-bold">${item.price}</span>
+                  <span className="text-lg font-bold">BDT : {item.price}</span>
                   <span className="badge badge-outline">{item.cuisine}</span>
                 </div>
                 <div className="card-actions justify-center">

@@ -363,7 +363,7 @@ export default function Home() {
                           {fooditem.cuisine}
                       </div>
                   </div>
-                <p className="my-3">{fooditem.price}</p>
+                <p className="my-3">BDT : {fooditem.price}</p>
                 <p className="my-3">{fooditem.description}</p>
                 <div className="card-actions justify-center">
                   <Link

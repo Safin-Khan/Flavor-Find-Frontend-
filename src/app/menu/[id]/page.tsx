@@ -59,7 +59,7 @@ export default function FoodItemDetail() {
             <h1 className="text-3xl font-bold mb-4">{foodItem.name}</h1>
             <p className="text-gray-600 mb-4">{foodItem.description}</p>
             <div className="flex justify-between items-center mb-6">
-              <span className="text-2xl font-bold">${foodItem.price}</span>
+              <span className="text-2xl font-bold">BDT : {foodItem.price}</span>
               <span className="badge badge-lg">{foodItem.cuisine}</span>
             </div>
             <button className="btn btn-primary w-full">Add to Cart</button>

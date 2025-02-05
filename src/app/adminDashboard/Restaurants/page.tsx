@@ -21,11 +21,16 @@ const restaurantsTable = () => {
     };
   return (
     
-    <div className="flex">
-      <AdminSidebar />
+   
     
-    <div className="w-10/12 h-full">
-      <div className="flex overflow-x-auto">
+    
+    <div className="w-full h-full">
+      {/* Total users */}
+      <div className="flex items-center justify-between bg-white p-6 rounded-lg shadow-md text-black">
+        <h2 className="text-xl font-semibold">Total Restaurants</h2>
+        <span className="text-2xl font-bold">{response.length}</span>
+      </div>
+      <div className="flex overflow-x-auto text-black ">
         <table className="table table-xs table-pin-rows table-pin-cols">
           <thead>
             <tr>
@@ -54,7 +59,7 @@ const restaurantsTable = () => {
         </table>
       </div>
       </div>
-    </div>
+  
   )
 }
 

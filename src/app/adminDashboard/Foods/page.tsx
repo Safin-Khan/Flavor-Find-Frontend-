@@ -21,12 +21,18 @@ const FoodsTable = () => {
         await axios.get(`http://localhost:4000/food-items/delete/${id}`);
         setResponse(response.filter(food => food.id !== id));
     };
+
+    
   return (
     
-    <div className="flex">
-      <AdminSidebar />
-    <div className="w-10/12 h-full">
-      <div className="overflow-x-auto">
+    
+    <div className="w-full h-full">
+      {/* Total users */}
+      <div className="flex items-center justify-between bg-white p-6 rounded-lg shadow-md text-black">
+        <h2 className="text-xl font-semibold">Total Food Items</h2>
+        <span className="text-2xl font-bold">{response.length}</span>
+      </div>
+      <div className="overflow-x-auto text-black">
         <table className="table table-xs table-pin-rows table-pin-cols">
           <thead>
             <tr>
@@ -64,8 +70,9 @@ const FoodsTable = () => {
           </tbody>
         </table>
       </div>
-      </div>
+      
     </div>
+   
   )
 }
 

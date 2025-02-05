@@ -32,7 +32,7 @@ const Registration = () => {
       try {
           await axios.post('http://localhost:4000/users/', formData);
           alert('Registration successful!');
-          router.push('/Auth/Login');
+          router.push('/login');
       } catch (error) {
           console.error('Registration failed', error);
       }

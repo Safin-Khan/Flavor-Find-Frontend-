@@ -8,9 +8,13 @@ import CreateFoodItem from '../menu/CreateFoodItem/page';
 import { getUserFromCookie } from '@/utility/token';
 import { set } from 'react-hook-form';
 
+import { useRouter } from 'next/navigation';
+
 
 
 export default function Dashboard() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('profile');
   const userId=getUserFromCookie();
   
@@ -43,6 +47,32 @@ export default function Dashboard() {
 
     fetchUserData();
   }, []);
+  const handleLogout = async () => {
+    try {
+      setIsLoading(true);
+      
+      // Clear local storage
+      localStorage.removeItem('token');
+
+      // Call logout endpoint
+      const response = await fetch('http://localhost:4000/users/logout', {
+        method: 'GET',
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        throw new Error('Logout failed');
+      }
+
+      // Navigate to login
+      window.location.href = '/login';
+      
+    } catch (error) {
+      console.error('Logout failed:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
  
   
   const updateUser = async () => {
@@ -303,8 +333,8 @@ export default function Dashboard() {
                         </button>
                       </li> */}
                       <li>
-                    <a href="/login" className="text-base lg:text-lg hover:text-primary text-white flex items-center gap-2">
-                        Sign-in
+                    <a onClick={handleLogout} className="text-base lg:text-lg hover:text-primary text-white flex items-center gap-2">
+                        Logout
                         <Image 
                         src="/personlogo.svg" 
                         alt="signin" 
@@ -345,11 +375,11 @@ export default function Dashboard() {
     <div className="flex min-h-screen bg-gray-100">
       
       {/* Sidebar */}
-      <div className="w-64 bg-white shadow-md">
+      <div className="w-64 bg-gray-800 shadow-md text-white">
       <div className="p-6">
-          <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
+          <h1 className="text-2xl font-bold tex-white">Dashboard</h1>
         </div>
-        <nav className="mt-6 text-black">
+        <nav className="mt-6 text-black text-white">
           {['profile', 'history','create', 'reviews', 'contact', 'help'].map((section) => (
             <button
               key={section}
@@ -362,7 +392,15 @@ export default function Dashboard() {
             </button>
           ))}
         </nav>
+        <button 
+      onClick={handleLogout}
+      disabled={isLoading}
+      className="btn btn-secondary w-full mt-4"
+    >
+      {isLoading ? 'Logging out...' : 'Logout'}
+    </button>
       </div>
+      
 
       {/* Main Content */}
       <div className="flex-1 p-10">
